@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Sidebar from "@/components/SideBar";
+import ProductGrid from "@/components/ProductGrid";
 
 export default function HomePage() {
   const [showFilters, setShowFilters] = useState(false);
@@ -36,7 +37,8 @@ export default function HomePage() {
         )}
 
         <section className="flex-1">
-          <h1 className="text-2xl font-bold mb-4">Products</h1>
+          <h1 className="text-2xl font-bold mb-4">Products List</h1>
+          <ProductGrid />
         </section>
       </div>
     </div>

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Wireless Headphones",
+    "price": 199,
+    "image": "https://plus.unsplash.com/premium_photo-1679513691474-73102089c117?q=80&w=1113&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "electronics"
+  },
+  {
+    "id": 2,
+    "title": "Smartphone with Ultra Camera",
+    "price": 699,
+    "image": "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D",
+    "category": "electronics"
+  },
+  {
+    "id": 3,
+    "title": "Designer Jacket",
+    "price": 120,
+    "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SmFja2V0fGVufDB8fDB8fHww",
+    "category": "clothing"
+  },
+  {
+    "id": 4,
+    "title": "Modern Sofa",
+    "price": 450,
+    "image": "https://plus.unsplash.com/premium_photo-1661765778256-169bf5e561a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U29mYXxlbnwwfHwwfHx8MA%3D%3D",
+    "category": "home"
+  },
+  {
+    "id": 5,
+    "title": "Bluetooth Smartwatch",
+    "price": 249,
+    "image": "https://images.unsplash.com/photo-1718309602791-8f3cc83840b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1dG9vdGglMjBzbWFydHdhdGNofGVufDB8fDB8fHww",
+    "category": "electronics"
+  },
+  {
+    "id": 6,
+    "title": "Leather Office Chair",
+    "price": 350,
+    "image": "https://plus.unsplash.com/premium_photo-1666990809668-1d3e257d8c29?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fExlYXRoZXIlMjBjaGFpcnxlbnwwfHwwfHx8MA%3D%3D",
+    "category": "home"
+  },
+  {
+    "id": 7,
+    "title": "Gaming Mouse",
+    "price": 89,
+    "image": "https://images.unsplash.com/photo-1628832307345-7404b47f1751?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtaW5nJTIwbW91c2V8ZW58MHx8MHx8fDA%3D",
+    "category": "electronics"
+  },
+  {
+    "id": 8,
+    "title": "Running Shoes",
+    "price": 130,
+    "image": "https://images.unsplash.com/photo-1735313477139-ef734fe78fbc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJ1bm5pbmdzaG9lc3xlbnwwfHwwfHx8MA%3D%3D",
+    "category": "clothing"
+  },
+  {
+    "id": 9,
+    "title": "Men’s Casual T-shirt",
+    "price": 29,
+    "image": "https://images.unsplash.com/photo-1674907683352-267e2ab6ba50?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJ3MlMjBjYXN1YWwlMjB0c2hpcnR8ZW58MHx8MHx8fDA%3D",
+    "category": "clothing"
+  },
+  {
+    "id": 10,
+    "title": "Sunglasses - UV Protection",
+    "price": 59,
+    "image": "https://images.unsplash.com/photo-1502767089025-6572583495f9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3VuZ2xhc3N8ZW58MHx8MHx8fDA%3D",
+    "category": "clothing"
+  }
+]

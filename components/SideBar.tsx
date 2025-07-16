@@ -1,38 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchFilters } from "@/hooks/useSearchFilters";
+import { useState, useEffect } from "react";
 
 export default function Sidebar() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [price, setPrice] = useState(1000);
+  const { category, maxPrice, setFilters } = useSearchFilters();
+  const [localCategory, setLocalCategory] = useState(category);
+  const [price, setPrice] = useState(maxPrice);
+
+  // Update filters in URL when values change
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setFilters({ category: localCategory, price });
+    }, 300);
+    return () => clearTimeout(timeout);
+  }, [localCategory, price]);
 
   return (
-    <aside className="bg-blue-500 text-white rounded-lg shadow p-4 w-full sm:w-60">
+    <aside className="bg-blue-600 text-white rounded-lg shadow p-4 w-full sm:w-60">
       <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
+      {/* Category */}
       <div className="mb-6">
         <h3 className="text-sm font-medium mb-2">Category</h3>
         <div className="flex flex-col gap-2 text-sm">
-          {["all", "electronics", "clothing", "home"].map((category) => (
-            <label
-              key={category}
-              className="flex items-center gap-2 capitalize">
+          {["all", "electronics", "clothing", "home"].map((c) => (
+            <label key={c} className="flex items-center gap-2 capitalize">
               <input
                 type="radio"
                 name="category"
-                value={category}
-                checked={selectedCategory === category}
-                onChange={() => setSelectedCategory(category)}
+                value={c}
+                checked={localCategory === c}
+                onChange={() => setLocalCategory(c)}
                 className="accent-white"
               />
-              {category}
+              {c}
             </label>
           ))}
         </div>
       </div>
 
+      {/* Price Range */}
       <div>
-        <h3 className="text-sm font-medium mb-2">Price</h3>
+        <h3 className="text-sm font-medium mb-2">{`Price: ${price}`}</h3>
         <input
           type="range"
           min="0"

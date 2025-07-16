@@ -1,11 +1,44 @@
-export default function Home() {
+"use client";
+
+import { useState } from "react";
+import Sidebar from "@/components/SideBar";
+
+export default function HomePage() {
+  const [showFilters, setShowFilters] = useState(false);
+
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Whatbytes Store 🛍️</h1>
-      <p className="text-gray-700 text-lg">
-        Start shopping by using the search bar or browsing categories (coming
-        soon).
-      </p>
-    </main>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <button
+        onClick={() => setShowFilters(true)}
+        className="sm:hidden bg-blue-500 text-white px-4 py-2 rounded mb-4">
+        Show Filters
+      </button>
+
+      <div className="flex flex-col sm:flex-row gap-6">
+        <aside className="hidden sm:block sm:w-64">
+          <Sidebar />
+        </aside>
+
+        {showFilters && (
+          <div className="fixed inset-0 bg-black/50 z-50 flex justify-end sm:hidden">
+            <div className="w-3/4 max-w-sm bg-gray-600 h-full p-4 shadow-lg overflow-auto">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-semibold">Filters</h2>
+                <button
+                  onClick={() => setShowFilters(false)}
+                  className="text-gray-800 hover:text-black">
+                  ✕
+                </button>
+              </div>
+              <Sidebar />
+            </div>
+          </div>
+        )}
+
+        <section className="flex-1">
+          <h1 className="text-2xl font-bold mb-4">Products</h1>
+        </section>
+      </div>
+    </div>
   );
 }

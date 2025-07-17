@@ -1,13 +1,18 @@
-import products from "@/data/products.json";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import products from "@/data/products.json";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import AddToCartSection from "./addToCartSection";
 
-type Params = { params: { id: string } };
+type Props = {
+  params: Promise<{
+    id: string;
+  }>;
+};
 
-export default function ProductPage({ params }: Params) {
-  const product = products.find((p) => p.id === Number(params.id));
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params;
+  const product = products.find((p) => p.id === Number(id));
 
   if (!product) return notFound();
 
@@ -28,7 +33,6 @@ export default function ProductPage({ params }: Params) {
             className="w-full h-[300px] md:h-[400px] object-cover rounded-lg"
           />
         </div>
-
         <div className="flex flex-col gap-4">
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <p className="text-lg font-semibold text-blue-500">
@@ -38,8 +42,6 @@ export default function ProductPage({ params }: Params) {
           <p className="text-sm text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-
-          {/* 🔥 Client logic moved into child */}
           <AddToCartSection product={product} />
         </div>
       </div>

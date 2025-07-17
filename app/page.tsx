@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Sidebar from "@/components/SideBar";
 import ProductGrid from "@/components/ProductGrid";
+import ProductGridSkeleton from "@/components/ProductGridSkeleton";
 
 export default function HomePage() {
   const [showFilters, setShowFilters] = useState(false);
@@ -17,7 +18,10 @@ export default function HomePage() {
 
       <div className="flex flex-col sm:flex-row gap-6">
         <aside className="hidden sm:block sm:w-64">
-          <Sidebar />
+          <Suspense
+            fallback={<div className="w-64 bg-gray-100 animate-pulse"></div>}>
+            <Sidebar />
+          </Suspense>
         </aside>
 
         {showFilters && (
@@ -31,14 +35,21 @@ export default function HomePage() {
                   ✕
                 </button>
               </div>
-              <Sidebar />
+              <Suspense
+                fallback={
+                  <div className="w-64 bg-gray-100 animate-pulse"></div>
+                }>
+                <Sidebar />
+              </Suspense>
             </div>
           </div>
         )}
 
         <section className="flex-1">
           <h1 className="text-2xl font-bold mb-4">Products List</h1>
-          <ProductGrid />
+          <Suspense fallback={<ProductGridSkeleton />}>
+            <ProductGrid />
+          </Suspense>
         </section>
       </div>
     </div>

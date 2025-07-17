@@ -1,24 +1,14 @@
 "use client";
 
-import { Search, ShoppingCart, UserCircle2 } from "lucide-react";
-import { useSearchFilters } from "@/hooks/useSearchFilters";
-import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useCartStore } from "@/stores/cart-store";
+import { ShoppingCart, UserCircle2 } from "lucide-react";
+import Link from "next/link";
+import { Suspense } from "react";
+import { SearchBar, SearchBarSkeleton } from "./Searchbar";
 
 export default function Header() {
-  const { search, setFilters } = useSearchFilters();
-  const [localSearch, setLocalSearch] = useState(search);
-
   const cart = useCartStore((state) => state.cart);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setFilters({ search: localSearch });
-    }, 500);
-    return () => clearTimeout(timeout);
-  }, [localSearch]);
 
   return (
     <header className="bg-blue-600 text-white px-6 py-4 shadow sticky top-0 z-50">
@@ -29,16 +19,9 @@ export default function Header() {
           Whatbytes
         </Link>
 
-        <div className="relative w-full sm:w-1/2">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white w-5 h-5" />
-          <input
-            type="text"
-            placeholder="Search for products..."
-            value={localSearch}
-            onChange={(e) => setLocalSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-full border border-white text-white placeholder-white bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white"
-          />
-        </div>
+        <Suspense fallback={<SearchBarSkeleton />}>
+          <SearchBar />
+        </Suspense>
 
         <div className="flex items-center gap-4 relative">
           <Link href="/cart" className="relative group">
@@ -53,7 +36,6 @@ export default function Header() {
               </span>
             )}
           </Link>
-
           <UserCircle2 className="w-7 h-7 hover:opacity-90 transition" />
         </div>
       </div>

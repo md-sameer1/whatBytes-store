@@ -5,7 +5,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        "ping-short": "ping 0.6s ease-out",
+      },
+    },
   },
   plugins: [],
 };

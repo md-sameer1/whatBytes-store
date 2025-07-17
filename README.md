@@ -9,6 +9,12 @@ This is a fully responsive e-commerce frontend built with **Next.js 15 App Route
 
 ---
 
+## 🔗 Live Demo
+
+👉 [what-bytes-store.vercel.app](https://what-bytes-store-git-main-md-sameers-projects.vercel.app/) — hosted on Vercel
+
+---
+
 ## 🚀 Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with App Router

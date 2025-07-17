@@ -8,7 +8,6 @@ export default function Sidebar() {
   const [localCategory, setLocalCategory] = useState(category);
   const [price, setPrice] = useState(maxPrice);
 
-  // Update filters in URL when values change
   useEffect(() => {
     const timeout = setTimeout(() => {
       setFilters({ category: localCategory, price });
@@ -20,7 +19,6 @@ export default function Sidebar() {
     <aside className="bg-blue-600 text-white rounded-lg shadow p-4 w-full sm:w-60">
       <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
-      {/* Category */}
       <div className="mb-6">
         <h3 className="text-sm font-medium mb-2">Category</h3>
         <div className="flex flex-col gap-2 text-sm">
@@ -40,7 +38,6 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* Price Range */}
       <div>
         <h3 className="text-sm font-medium mb-2">{`Price: ${price}`}</h3>
         <input

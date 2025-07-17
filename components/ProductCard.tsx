@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useCartStore } from "@/stores/cart-store";
 
 type Product = {
   id: number;
@@ -9,6 +10,8 @@ type Product = {
 };
 
 export default function ProductCard({ product }: { product: Product }) {
+  const addToCart = useCartStore((state) => state.addToCart);
+
   return (
     <Link
       href={`/product/${product.id}`}
@@ -24,9 +27,11 @@ export default function ProductCard({ product }: { product: Product }) {
         </h3>
         <p className="text-lg text-black font-semibold">${product.price}</p>
         <button
-          className="mt-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-sm font-medium"
-          onClick={(e) => e.preventDefault()} // prevents navigating if user clicks button
-        >
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart({ ...product, quantity: 1 });
+          }}
+          className="mt-auto bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition text-sm font-medium">
           Add to Cart
         </button>
       </div>
